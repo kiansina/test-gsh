@@ -3,8 +3,8 @@
 import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
-from collections.abc import Iterable
-collections.Iterable = collections.abc.Iterable
+
+
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"],
