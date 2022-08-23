@@ -17,11 +17,11 @@ spreadsheetname="Questionnaire_test"
 #s=Spread(spreadsheetname,client=client)
 #sh=client.open(spreadsheetname)
 
-@st.cache(allow_output_mutation=True)
+@st.experimental_singleton
 def faster():
-    return client.open(spreadsheetname)
+    return client.open(spreadsheetname),Spread(spreadsheetname,client=client)
 
-sh=faster()
+sh,s=faster()
 
 df=pd.DataFrame(sh.worksheet('test').get_all_records())
 
@@ -115,7 +115,7 @@ if check_password():
             if st.button("Confirm"):
                 L=len(pd.DataFrame(get_data()))
                 dx=df.append(pd.DataFrame(get_data()).loc[L-1,:],ignore_index=True)
-                Spread(spreadsheetname,client=client).df_to_sheet(dx,sheet='test',index=False)
+                s.df_to_sheet(dx,sheet='test',index=False)
                 st.title('la sua esame è finito 😊.')
                 st.title("Grazie per la collaborazione! 😍")
                 st.session_state["st"]=False
