@@ -116,6 +116,7 @@ if check_password():
                 s.df_to_sheet(dx,sheet='test',index=False)
                 st.title('la sua esame è finito 😊.')
                 st.title("Grazie per la collaborazione! 😍")
+		df=load_sheet()
                 st.session_state["st"]=False
         else:
             st.title('l\'esame gia registrato 😊.')
