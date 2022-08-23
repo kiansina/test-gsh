@@ -104,7 +104,8 @@ if check_password():
                 st.write(pd.DataFrame(get_data()))
                 A=pd.DataFrame(get_data())
                 if st.button("Confirm"):
-                    s.df_to_sheet(A,sheet='test', start='A1', replace=True, freeze_headers=1)
+                    s.df_to_sheet(A,sheet='test', start='A8', replace=True, freeze_headers=1)
+                df=s.sheet_to_df(header_rows=1,index=False)
                 st.title('la sua esame è finito 😊.')
                 st.title("Grazie per la collaborazione! 😍")
                 st.session_state["st"]=False
