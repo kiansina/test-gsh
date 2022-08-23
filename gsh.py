@@ -19,15 +19,7 @@ spreadsheetname="Questionnaire_test"
 
 
 
-@st.cache
-def fasters2():
-    sh=client.open(spreadsheetname)
-    return sh
-
-sh=fasters2()
-
-
-df=pd.DataFrame(sh.worksheet('test').get_all_records())
+df=pd.DataFrame(client.open(spreadsheetname).worksheet('test').get_all_records())
 
 questions = {
   "1": "2+2=?",
