@@ -14,14 +14,14 @@ credentials = service_account.Credentials.from_service_account_info(
 
 client=Client(scope=["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/spreadsheets"], creds=credentials)
 spreadsheetname="Questionnaire_test"
-s=Spread(spreadsheetname,client=client)
-sh=client.open(spreadsheetname)
+#s=Spread(spreadsheetname,client=client)
+#sh=client.open(spreadsheetname)
 
-#@st.cache
-#def load_sheet():
-#	  return pd.DataFrame(sh.worksheet('test').get_all_records())
+@st.cache
+def fasters():
+	  return Spread(spreadsheetname,client=client),client.open(spreadsheetname)
 
-#df=load_sheet()
+s,sh=fasters()
 
 df=pd.DataFrame(sh.worksheet('test').get_all_records())
 
