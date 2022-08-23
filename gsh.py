@@ -19,9 +19,6 @@ spreadsheetname="Questionnaire_test"
 
 
 
-
-s=fasters()
-
 @st.cache
 def fasters2():
     sh=client.open(spreadsheetname)
