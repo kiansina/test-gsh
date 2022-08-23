@@ -17,11 +17,13 @@ spreadsheetname="Questionnaire_test"
 s=Spread(spreadsheetname,client=client)
 sh=client.open(spreadsheetname)
 
-@st.cache
-def load_sheet():
-	  return pd.DataFrame(sh.worksheet('test').get_all_records())
+#@st.cache
+#def load_sheet():
+#	  return pd.DataFrame(sh.worksheet('test').get_all_records())
 
-df=load_sheet()
+#df=load_sheet()
+
+df=pd.DataFrame(sh.worksheet('test').get_all_records())
 
 questions = {
   "1": "2+2=?",
