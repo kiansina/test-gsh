@@ -77,7 +77,7 @@ if "t0" not in st.session_state:
 if "st" not in st.session_state:
     st.session_state["st"]= True
 if "usercheck" not in st.session_state:
-    st.session_state['usercheck']="sina"
+    st.session_state['usercheck']=True
 if "rn" not in st.session_state:
     st.session_state["rn"] = random.sample(range(1, 10), 5)
 
