@@ -17,7 +17,7 @@ spreadsheetname="Questionnaire_test"
 #s=Spread(spreadsheetname,client=client)
 #sh=client.open(spreadsheetname)
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def fasters():
     s=Spread(spreadsheetname,client=client)
     return s
