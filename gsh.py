@@ -20,10 +20,17 @@ spreadsheetname="Questionnaire_test"
 @st.cache
 def fasters():
     s=Spread(spreadsheetname,client=client)
+    return s
+
+s=fasters()
+
+@st.cache
+def fasters2():
     sh=client.open(spreadsheetname)
+    return sh
 
+sh=fasters2()
 
-fasters()
 
 df=pd.DataFrame(sh.worksheet('test').get_all_records())
 
